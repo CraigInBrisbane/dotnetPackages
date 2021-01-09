@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using AutoMapper;
+using System;
+using System.Linq;
 
 namespace Api
 {
@@ -36,6 +39,8 @@ namespace Api
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
+            // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.StartsWith("Api.Business")));
 
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
