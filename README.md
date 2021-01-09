@@ -10,8 +10,8 @@ This project has no UI (yet), as it's a demonstration of backend development.
 This project has been created using .Net 5.0, and will hopefully follow the latest framework releases. Additionally, Nuget packages will be updated as they become avaialble, unless they're broken. Packages that will be used:
 
 * Mediatr (Added)
-* Entity Framework Core (SQL server) (Added)
-* AutoMapper (Not yet added)
+* Entity Framework Core (SQL server) (Added - Not being used)
+* AutoMapper (Added)
 * NUnit (Not yet added)
 * Moq (Not yet added)
 * Swagger (Added)
