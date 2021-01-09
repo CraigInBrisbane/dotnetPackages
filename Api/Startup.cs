@@ -26,17 +26,18 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // Get SQL Server sorted
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DatabaseContext>(
                 opt => opt.UseSqlServer(connectionString)
              );
 
+            // Inject what we'll be using
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
 
-            services.AddSingleton<DbContext, DatabaseContext>();
-
+            // Inject our classes
             services.AddScoped<IUserService, UserService>();
 
         }
