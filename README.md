@@ -22,3 +22,6 @@ This project has been created using .Net 5.0, and will hopefully follow the late
 The project achieves nothing. The plan is to add functionality that will showcase the packages we use, and will continually be added to. As of now, the plan is to login, and be authenticated. Basically showing that we get a 200 on a protected endpoint.
 
 I have no experience with some of these, and wouldn't mind learning Micro Services - so the project will be designed with that in mind.
+
+## Usage
+This was built using Visual Studio 2019 Community Edition. You should just need to pull down the repo, open the solution, and it should run. Running it, produces the Swagger page, allowing you to run the endpoints.
