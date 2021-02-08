@@ -28,7 +28,7 @@ namespace Api.Business.User
                 CountryId = request.CountryId,
                 Created = DateTimeOffset.Now,
                 Email = request.Email,
-                EmailValidatedOn = DateTimeOffset.Now,
+                EmailValidatedOn = null,
                 Firstname = request.Firstname,
                 Id = id,
                 Surname = request.Surname,
