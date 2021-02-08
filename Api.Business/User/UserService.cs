@@ -35,7 +35,7 @@ namespace Api.Business.User
                 Updated = null
             });
 
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return new RegisterUserResponse
             {

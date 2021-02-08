@@ -4,18 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Database
 {
     public class DatabaseContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
     {
+        private readonly IConfiguration _configuration;
+
+        public DatabaseContextFactory(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public DatabaseContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
 
-            //string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
-            optionsBuilder.UseSqlServer(@"Server=.\sqlexpress;Database=Api;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new DatabaseContext(optionsBuilder.Options);
         }

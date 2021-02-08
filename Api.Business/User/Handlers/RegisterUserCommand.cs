@@ -32,7 +32,7 @@ namespace Api.Business.User.Handlers
 
         public async Task<RegisterUserResponse> Handle(RegisterUserQuery request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Handler executing for email {email}", request.Email);
+            _logger.LogInformation("Handler executing for email {Email}", request.Email);
             var result = await _userService.Register(request);
             return result;
         }
