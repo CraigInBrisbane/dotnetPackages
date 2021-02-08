@@ -3,27 +3,27 @@ using Api.Business.User.Handlers;
 using Api.Core.Contracts.Responses;
 using Infrastructure.Database;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Api.Core.Contracts.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Business.User
 {
     public class UserService : IUserService
     {
-        private readonly DatabaseContext _db;
+        private readonly DatabaseContext _context;
 
-        public UserService(DatabaseContext db)
+        public UserService(DatabaseContext context)
         {
-            _db = db;
+            _context = context;
         }
 
         public async Task<RegisterUserResponse> Register(RegisterUserQuery request)
         {
-            //todo: add entity validation...
-
-            // ???
             var id = Guid.NewGuid();
 
-            _db.Add(new Core.Entities.User
+            _context.Add(new Core.Entities.User
             {
                 CountryId = request.CountryId,
                 Created = DateTimeOffset.Now,
@@ -35,13 +35,26 @@ namespace Api.Business.User
                 Updated = null
             });
 
-            await _db.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return new RegisterUserResponse
             {
                 Email = request.Email,
                 UserId = id,
             };
+        }
+
+        public async Task<UserListResponse> GetUsers()
+        {
+            var data = await _context.Users.Select(x => new UserDto
+            {
+                Email = x.Email,
+                Firstname = x.Firstname,
+                Id = x.Id,
+                Surname = x.Surname
+            }).ToListAsync();
+
+            return new UserListResponse {Data = data};
         }
     }
 }

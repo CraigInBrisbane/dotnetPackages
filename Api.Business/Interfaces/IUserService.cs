@@ -7,5 +7,6 @@ namespace Api.Business.Interfaces
     public interface IUserService
     {
         Task<RegisterUserResponse> Register(RegisterUserQuery request);
+        Task<UserListResponse> GetUsers();
     }
 }
