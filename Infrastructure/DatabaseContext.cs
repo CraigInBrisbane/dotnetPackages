@@ -11,5 +11,6 @@ namespace Infrastructure.Database
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserEmail> UserEmails { get; set; }
     }
 }

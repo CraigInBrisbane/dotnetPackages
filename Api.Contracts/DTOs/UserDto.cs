@@ -7,6 +7,7 @@ namespace Api.Core.Contracts.DTOs
         public Guid Id { get; set; }
         public string Firstname { get; set; }
         public string Surname { get; set; }
-        public string Email { get; set; }
+        public EmailDto Email { get; set; }
+        public bool EmailValidated { get; set; }
     }
 }

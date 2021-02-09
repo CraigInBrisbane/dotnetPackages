@@ -1,4 +1,5 @@
-﻿using Api.Business.User.Handlers;
+﻿using System;
+using Api.Business.User.Handlers;
 using Api.Core.Contracts.Requests;
 using AutoMapper;
 using MediatR;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -39,6 +40,13 @@ namespace Api.Controllers
         public async Task<IActionResult> GetUsers()
         {
             var result = await this._mediatr.Send(new GetUsersQuery());
+            return Ok(result);
+        }
+
+        [HttpPost, Route("{emailValidationId}/validate")]
+        public async Task<IActionResult> ValidateEmail(Guid emailValidationId)
+        {
+            var result = await _mediatr.Send(new ValidateEmailCommand(emailValidationId));
             return Ok(result);
         }
     }
