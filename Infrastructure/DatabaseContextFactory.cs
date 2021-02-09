@@ -10,20 +10,22 @@ namespace Infrastructure.Database
 {
     public class DatabaseContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
     {
-        private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
 
         public DatabaseContextFactory(IConfiguration configuration)
         {
-            _configuration = configuration;
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+        }
+
+        public DatabaseContextFactory()
+        {
+            //TODO: This is a problem. We need a parameterless constructor for the code to work... so how do we inject IConfig?
+            _connectionString =  "Server=localhost;Database=Api;Trusted_Connection=True;";
         }
         public DatabaseContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-
-            var connectionString = _configuration.GetConnectionString("DefaultConnection");
-
-            optionsBuilder.UseSqlServer(connectionString);
-
+            optionsBuilder.UseSqlServer(_connectionString);
             return new DatabaseContext(optionsBuilder.Options);
         }
     }

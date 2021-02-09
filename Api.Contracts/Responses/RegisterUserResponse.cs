@@ -6,5 +6,7 @@ namespace Api.Core.Contracts.Responses
     {
         public Guid UserId { get; set; }
         public string Email { get; set; }
+        
+        public Guid EmailValidationId { get; set; }
     }
 }

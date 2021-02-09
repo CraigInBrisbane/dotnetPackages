@@ -25,7 +25,7 @@ namespace Api
             }
             catch (System.Exception ex)
             {
-                Log.Fatal("Unable to start the application", ex);
+                Log.Fatal($"Unable to start the application: {ex.Message}", ex);
             }
             finally
             {
