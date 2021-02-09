@@ -19,14 +19,26 @@ namespace Api.Controllers
             this._mediatr = mediatr;
             this._mapper = mapper;
         }
+        
         /// <summary>
         /// Registers a new user
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Primary key of new user</returns>
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
             var result = await this._mediatr.Send(_mapper.Map<RegisterUserRequest, RegisterUserQuery>(request));
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Gets a full list of users
+        /// </summary>
+        /// <returns>List of Users</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            var result = await this._mediatr.Send(new GetUsersQuery());
             return Ok(result);
         }
     }
