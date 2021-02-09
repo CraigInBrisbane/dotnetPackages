@@ -7,9 +7,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Api.Business.User.Handlers
 {
-    public class GetUsersQuery: IRequest<UserListResponse>
+    public class GetUsersQuery : IRequest<UserListResponse>
     {
-        
     }
 
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, UserListResponse>

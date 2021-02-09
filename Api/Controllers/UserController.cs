@@ -19,6 +19,7 @@ namespace Api.Controllers
             this._mediatr = mediatr;
             this._mapper = mapper;
         }
+        
         /// <summary>
         /// Registers a new user
         /// </summary>
