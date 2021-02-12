@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Storage\Software Repositories\Personal\Api\Api" t="IncludeFlat">
+      <e p="Api.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="src" t="Include">
+        <e p="Api" t="IncludeRecursive">
+          <e p="Api.csproj" t="IncludeRecursive" />
+          <e p="appsettings.Development.json" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Controllers" t="Include">
+            <e p="UserController.cs" t="Include" />
+          </e>
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="net5.0" t="Include">
+                <e p="Api.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Program.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="launchSettings.json" t="Include" />
+          </e>
+          <e p="Startup.cs" t="Include" />
+        </e>
+        <e p="Application" t="IncludeRecursive">
+          <e p="Application.csproj" t="IncludeRecursive" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Interfaces" t="Include">
+            <e p="IUserService.cs" t="Include" />
+          </e>
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="net5.0" t="Include">
+                <e p="Application.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="User" t="Include">
+            <e p="Handlers" t="Include">
+              <e p="GetUsersQuery.cs" t="Include" />
+              <e p="RegisterUserCommand.cs" t="Include" />
+              <e p="ValidateEmailCommand.cs" t="Include" />
+            </e>
+            <e p="Mappings" t="Include">
+              <e p="Mappings.cs" t="Include" />
+            </e>
+            <e p="UserService.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Domain" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Domain.csproj" t="IncludeRecursive" />
+          <e p="Dtos" t="Include">
+            <e p="EmailDto.cs" t="Include" />
+            <e p="UserDto.cs" t="Include" />
+          </e>
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="net5.0" t="Include">
+                <e p="Domain.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Requests" t="Include">
+            <e p="RegisterUserRequest.cs" t="Include" />
+          </e>
+          <e p="Responses" t="Include">
+            <e p="RegisterUserResponse.cs" t="Include" />
+            <e p="UserListResponse.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Infrastructure" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Database" t="Include">
+            <e p="DatabaseContext.cs" t="Include" />
+            <e p="DatabaseContextFactory.cs" t="Include" />
+            <e p="Entities" t="Include">
+              <e p="BaseEntity.cs" t="Include" />
+              <e p="User.cs" t="Include" />
+              <e p="UserEmail.cs" t="Include" />
+            </e>
+            <e p="Migrations" t="Include" />
+          </e>
+          <e p="Infrastructure.csproj" t="IncludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp3.1" t="Include">
+                <e p="Infrastructure.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+    </e>
+    <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Api.-1486354545.00" t="ExcludeRecursive" />
+  </component>
+</project>
