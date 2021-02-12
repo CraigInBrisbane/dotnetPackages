@@ -71,6 +71,7 @@
           <e p="Responses" t="Include">
             <e p="GenericResponse.cs" t="Include" />
             <e p="RegisterUserResponse.cs" t="Include" />
+            <e p="Response.cs" t="Include" />
             <e p="UserListResponse.cs" t="Include" />
           </e>
         </e>
@@ -84,7 +85,6 @@
               <e p="User.cs" t="Include" />
               <e p="UserEmail.cs" t="Include" />
             </e>
-            <e p="Migrations" t="Include" />
           </e>
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
           <e p="Migrations" t="Include">

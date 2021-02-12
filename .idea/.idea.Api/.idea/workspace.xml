@@ -5,17 +5,16 @@
     <projectFile>../src/UI/UI/UI.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Removed old reference">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210212053632_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210212053632_Initial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/DatabaseContextModelSnapshot.cs" afterDir="false" />
+    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Updated Migrations and added better return for Validation">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/Response.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +52,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Api.Core/Entities/BaseEntity.cs" />
-      <option value="$PROJECT_DIR$/Api.Core/Entities/UserEmail.cs" />
-      <option value="$PROJECT_DIR$/Infrastructure/DatabaseContext.cs" />
       <option value="$PROJECT_DIR$/Api.Contracts/Responses/RegisterUserResponse.cs" />
       <option value="$PROJECT_DIR$/Api.Core/Entities/User.cs" />
       <option value="$PROJECT_DIR$/Api.Business/Interfaces/IUserService.cs" />
@@ -78,7 +74,6 @@
       <option value="$PROJECT_DIR$/src/Domain/Class1.cs" />
       <option value="$PROJECT_DIR$/src/Application/Class1.cs" />
       <option value="$PROJECT_DIR$/src/Domain/DTOs/EmailDto.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" />
       <option value="$PROJECT_DIR$/Infrastructure/Database/Entities/BaseEntity.cs" />
       <option value="$PROJECT_DIR$/Infrastructure/Database/Entities/User.cs" />
       <option value="$PROJECT_DIR$/Infrastructure/Database/Entities/UserEmail.cs" />
@@ -88,8 +83,6 @@
       <option value="$PROJECT_DIR$/Infrastructure/Database/Migrations/20210209053347_Initial.cs" />
       <option value="$PROJECT_DIR$/Infrastructure/Database/Migrations/DatabaseContextModelSnapshot.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Requests/RegisterUserRequest.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUsersQuery.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/RegisterUserCommand.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
@@ -101,9 +94,15 @@
       <option value="$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs" />
       <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
-      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/IResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/Response.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/ResponseStatus.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -195,7 +194,7 @@
       <workItem from="1613090405204" duration="3201000" />
       <workItem from="1613102799064" duration="50000" />
       <workItem from="1613103055534" duration="1917000" />
-      <workItem from="1613105007404" duration="3259000" />
+      <workItem from="1613105007404" duration="4759000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -253,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613108129772</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Updated Migrations and added better return for Validation">
+      <created>1613108911980</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1613108911980</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +322,7 @@
     <MESSAGE value="Rewordking Folder and Project structure" />
     <MESSAGE value="Added unversioned files." />
     <MESSAGE value="Removed old reference" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed old reference" />
+    <MESSAGE value="Updated Migrations and added better return for Validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Migrations and added better return for Validation" />
   </component>
 </project>

@@ -54,31 +54,36 @@ namespace Application.User
             {
                 Email = request.Email,
                 UserId = id,
-                EmailValidationId = userEmail.Id
+                EmailValidationId = userEmail.Id,
+                Message = "User registered successfully",
+                Success = true,
+                ResponseCode = 201
             };
         }
 
         public async Task<UserListResponse> GetUsers()
         {
-            
             var data = await _context.Users
                 .Include(x => x.UserEmails)
                 .Select(x => new UserDto
                 {
                     Email = new EmailDto //TODO: This seems like we're doing 4 queries... can maybe be simplified?
                     {
-                        Current = x.UserEmails.OrderByDescending(u=>u.Created).FirstOrDefault().Email,
-                        CurrentIsValidated = x.UserEmails.OrderByDescending(u=>u.Created).FirstOrDefault().ValidatedDate.HasValue,
-                        LastValidated = x.UserEmails.OrderByDescending(u=>u.Created).FirstOrDefault(y=>y.ValidatedDate.HasValue).Email,
-                        EmailValidationId = x.UserEmails.OrderByDescending(u=>u.Created).FirstOrDefault(x=>x.ValidatedDate.HasValue == false).Id,
+                        Current = x.UserEmails.OrderByDescending(u => u.Created).FirstOrDefault().Email,
+                        CurrentIsValidated = x.UserEmails.OrderByDescending(u => u.Created).FirstOrDefault()
+                            .ValidatedDate.HasValue,
+                        LastValidated = x.UserEmails.OrderByDescending(u => u.Created)
+                            .FirstOrDefault(y => y.ValidatedDate.HasValue).Email,
+                        EmailValidationId = x.UserEmails.OrderByDescending(u => u.Created)
+                            .FirstOrDefault(x => x.ValidatedDate.HasValue == false).Id,
                     },
-                    EmailValidated = x.UserEmails.OrderByDescending(y => y.Created).FirstOrDefault().ValidatedDate.HasValue, // TODO: Maybe this doesn't need to be done twice, and we can get the email stuff before in one call?
                     Firstname = x.Firstname,
                     Id = x.Id,
                     Surname = x.Surname
                 }).ToListAsync();
 
-            return new UserListResponse {Data = data};
+            return new UserListResponse
+                {Data = data, Message = $"Returning {data.Count} Users", Success = true, ResponseCode = 200};
         }
 
         public async Task<GenericResponse> ValidateEmail(Guid emailValidationId)
@@ -86,7 +91,8 @@ namespace Application.User
             var emailValidation = await _context.UserEmails.SingleOrDefaultAsync(x => x.Id == emailValidationId);
             if (emailValidation is null)
             {
-                _log.LogWarning("Attempt to validate invalid Email Validation Id {EmailValidationId}", emailValidationId);
+                _log.LogWarning("Attempt to validate invalid Email Validation Id {EmailValidationId}",
+                    emailValidationId);
                 return new GenericResponse
                 {
                     Message = "Invalid validation token",
@@ -97,8 +103,10 @@ namespace Application.User
 
             if (emailValidation.ValidatedDate.HasValue)
             {
-                _log.LogWarning("Attempt to validate already validated Email with Validation Id {EmailValidationId}", emailValidationId);
+                _log.LogWarning("Attempt to validate already validated Email with Validation Id {EmailValidationId}",
+                    emailValidationId);
                 return new GenericResponse()
+
                 {
                     Message = "Email is already validated",
                     Success = false,
