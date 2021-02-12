@@ -25,7 +25,7 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
-            var result = await this._mediatr.Send(new RegisterUserRequest
+            var result = await this._mediatr.Send(new RegisterUserQuery
             {
                 Email = request.Email, Firstname = request.Firstname, Password = request.Password,
                 Surname = request.Surname, CountryId = request.CountryId

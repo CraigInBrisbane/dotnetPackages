@@ -7,6 +7,9 @@ using Domain.DTOs;
 using Domain.Responses;
 using Infrastructure.Database;
 using Infrastructure.Database.Entities;
+using Infrastructure.Providers;
+using Infrastructure.Providers.DateTime;
+using Infrastructure.Providers.Encryption;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -27,6 +30,8 @@ namespace Application.User
         {
             var id = Guid.NewGuid();
 
+            var encryptedPassword = EncryptionProvider.GenerateSaltedHash(request.Password, id.ToString());
+            
             var user = new Infrastructure.Database.Entities.User
             {
                 CountryId = request.CountryId,
@@ -34,7 +39,8 @@ namespace Application.User
                 Firstname = request.Firstname,
                 Id = id,
                 Surname = request.Surname,
-                Updated = null
+                Updated = null,
+                Password = encryptedPassword
             };
 
             var userEmail = new UserEmail
@@ -42,7 +48,7 @@ namespace Application.User
                 Id = Guid.NewGuid(),
                 Email = request.Email,
                 User = user,
-                Created = DateTimeOffset.UtcNow,
+                Created = TimeProvider.Current.UtcNow,
             };
 
             await _context.Users.AddAsync(user);

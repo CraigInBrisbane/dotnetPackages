@@ -15,6 +15,7 @@ namespace Infrastructure.Migrations
                     Firstname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     Updated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },

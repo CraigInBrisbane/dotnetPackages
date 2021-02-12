@@ -13,8 +13,14 @@ namespace Infrastructure.Database.Entities
         public string Surname { get; set; }
         
         public int CountryId { get; set; }
+
+        [MaxLength(200), Required]
+        public string Password { get; set; }
+
         
+        // Navigation Properties
         public ICollection<UserEmail> UserEmails { get; set; }
+        
         
     }
 }

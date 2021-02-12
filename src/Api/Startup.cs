@@ -1,3 +1,4 @@
+using Application.Authentication;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -5,12 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System;
-using System.Linq;
 using Application.Interfaces;
 using Application.User;
 using Application.User.Handlers;
 using Infrastructure;
+using IAuthenticationService = Application.Interfaces.IAuthenticationService;
 
 namespace Api
 {
@@ -38,8 +38,7 @@ namespace Api
             
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
-
-
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
 
         }
 
