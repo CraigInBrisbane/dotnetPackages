@@ -2,12 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Interfaces;
+using Domain.Responses;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace Application.User.Handlers
 {
-    public class ValidateEmailCommand : IRequest<bool>
+    public class ValidateEmailCommand : IRequest<GenericResponse>
     {
         public ValidateEmailCommand(Guid id)
         {
@@ -16,7 +17,7 @@ namespace Application.User.Handlers
         public Guid EmailValidationId { get; set; }
     }
 
-    public class ValidateEmailCommandHandler : IRequestHandler<ValidateEmailCommand, bool>
+    public class ValidateEmailCommandHandler : IRequestHandler<ValidateEmailCommand, GenericResponse>
     {
 
         private readonly ILogger _logger;
@@ -28,7 +29,7 @@ namespace Application.User.Handlers
             _userService = userService;
         }
 
-        public async Task<bool> Handle(ValidateEmailCommand request, CancellationToken cancellationToken)
+        public async Task<GenericResponse> Handle(ValidateEmailCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Email validation handler being executed with Id {EmailValidationId}", request.EmailValidationId);
             var result = await _userService.ValidateEmail(request.EmailValidationId);

@@ -9,6 +9,6 @@ namespace Application.Interfaces
     {
         Task<RegisterUserResponse> Register(RegisterUserQuery request);
         Task<UserListResponse> GetUsers();
-        Task<bool> ValidateEmail(Guid emailValidationId);
+        Task<GenericResponse> ValidateEmail(Guid emailValidationId);
     }
 }

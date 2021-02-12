@@ -69,6 +69,7 @@
             <e p="RegisterUserRequest.cs" t="Include" />
           </e>
           <e p="Responses" t="Include">
+            <e p="GenericResponse.cs" t="Include" />
             <e p="RegisterUserResponse.cs" t="Include" />
             <e p="UserListResponse.cs" t="Include" />
           </e>
@@ -86,6 +87,11 @@
             <e p="Migrations" t="Include" />
           </e>
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
+          <e p="Migrations" t="Include">
+            <e p="20210212053632_Initial.cs" t="Include" />
+            <e p="20210212053632_Initial.Designer.cs" t="Include" />
+            <e p="DatabaseContextModelSnapshot.cs" t="Include" />
+          </e>
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">

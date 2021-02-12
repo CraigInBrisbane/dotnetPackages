@@ -5,13 +5,17 @@
     <projectFile>../src/UI/UI/UI.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Api/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Api/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Api/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Api/appsettings.json" afterDir="false" />
+    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Removed old reference">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210212053632_Initial.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210212053632_Initial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/DatabaseContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Api.Business/User/Handlers/GetUsersQuery.cs" />
       <option value="$PROJECT_DIR$/Api.Core/Entities/BaseEntity.cs" />
       <option value="$PROJECT_DIR$/Api.Core/Entities/UserEmail.cs" />
       <option value="$PROJECT_DIR$/Infrastructure/DatabaseContext.cs" />
@@ -87,8 +90,6 @@
       <option value="$PROJECT_DIR$/src/Domain/Requests/RegisterUserRequest.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
-      <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUsersQuery.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/RegisterUserCommand.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
@@ -96,10 +97,13 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/DatabaseContext.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Migrations/20210209053347_Initial.Designer.cs" />
-      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
       <option value="$PROJECT_DIR$/src/Api/Api.csproj" />
-      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -112,6 +116,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997028" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -190,7 +195,7 @@
       <workItem from="1613090405204" duration="3201000" />
       <workItem from="1613102799064" duration="50000" />
       <workItem from="1613103055534" duration="1917000" />
-      <workItem from="1613105007404" duration="2533000" />
+      <workItem from="1613105007404" duration="3259000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -234,7 +239,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613107850035</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added unversioned files.">
+      <created>1613107997158</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613107997158</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Removed old reference">
+      <created>1613108129772</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613108129772</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,31 +307,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Injected config to context builder and some cleanup" />
     <MESSAGE value="Added endpoint to get list of users" />
     <MESSAGE value="Cleanuo" />
     <MESSAGE value="Added Email Validation and added new UserEmail table." />
     <MESSAGE value="Rewordking Folder and Project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rewordking Folder and Project structure" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\Mappings\Mappings.cs" initialLine="9" containingFunctionPresentation="constructor 'Mappings'">
-            <startOffsets>
-              <option value="203" />
-            </startOffsets>
-            <endOffsets>
-              <option value="255" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added unversioned files." />
+    <MESSAGE value="Removed old reference" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed old reference" />
   </component>
 </project>

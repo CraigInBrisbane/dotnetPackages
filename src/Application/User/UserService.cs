@@ -81,25 +81,40 @@ namespace Application.User
             return new UserListResponse {Data = data};
         }
 
-        public async Task<bool> ValidateEmail(Guid emailValidationId)
+        public async Task<GenericResponse> ValidateEmail(Guid emailValidationId)
         {
             var emailValidation = await _context.UserEmails.SingleOrDefaultAsync(x => x.Id == emailValidationId);
             if (emailValidation is null)
             {
                 _log.LogWarning("Attempt to validate invalid Email Validation Id {EmailValidationId}", emailValidationId);
-                return false;
+                return new GenericResponse
+                {
+                    Message = "Invalid validation token",
+                    Success = false,
+                    ResponseCode = 404
+                };
             }
 
             if (emailValidation.ValidatedDate.HasValue)
             {
                 _log.LogWarning("Attempt to validate already validated Email with Validation Id {EmailValidationId}", emailValidationId);
-                return false;
+                return new GenericResponse()
+                {
+                    Message = "Email is already validated",
+                    Success = false,
+                    ResponseCode = 400
+                };
             }
 
             emailValidation.ValidatedDate = DateTimeOffset.UtcNow;
             await _context.SaveChangesAsync();
 
-            return true;
+            return new GenericResponse
+            {
+                Message = "Your email address has been validated",
+                Success = true,
+                ResponseCode = 200
+            };
         }
     }
 }

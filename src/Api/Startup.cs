@@ -39,7 +39,7 @@ namespace Api
             services.AddSwaggerGen();
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
             // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.StartsWith("Api.Business")));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.StartsWith("Application")));
 
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
