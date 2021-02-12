@@ -45,9 +45,6 @@
               <e p="RegisterUserCommand.cs" t="Include" />
               <e p="ValidateEmailCommand.cs" t="Include" />
             </e>
-            <e p="Mappings" t="Include">
-              <e p="Mappings.cs" t="Include" />
-            </e>
             <e p="UserService.cs" t="Include" />
           </e>
         </e>
@@ -86,6 +83,7 @@
               <e p="UserEmail.cs" t="Include" />
             </e>
           </e>
+          <e p="DependencyInjection.cs" t="Include" />
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
           <e p="Migrations" t="Include">
             <e p="20210212053632_Initial.cs" t="Include" />
@@ -101,6 +99,7 @@
           </e>
         </e>
       </e>
+      <e p="tests" t="Include" />
     </e>
     <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Api.-1486354545.00" t="ExcludeRecursive" />

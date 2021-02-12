@@ -1,5 +1,4 @@
 ﻿using System;
-using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -12,15 +11,13 @@ namespace Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
         private readonly IMediator _mediatr;
-        private readonly IMapper _mapper;
-        public UserController(IMediator mediatr, IMapper mapper)
+
+        public UserController(IMediator mediatr)
         {
             this._mediatr = mediatr;
-            this._mapper = mapper;
         }
-        
+
         /// <summary>
         /// Registers a new user
         /// </summary>
@@ -28,7 +25,11 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
-            var result = await this._mediatr.Send(_mapper.Map<RegisterUserRequest, RegisterUserQuery>(request));
+            var result = await this._mediatr.Send(new RegisterUserRequest
+            {
+                Email = request.Email, Firstname = request.Firstname, Password = request.Password,
+                Surname = request.Surname, CountryId = request.CountryId
+            });
             return Ok(result);
         }
 

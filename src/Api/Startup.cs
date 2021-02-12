@@ -1,7 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +10,7 @@ using System.Linq;
 using Application.Interfaces;
 using Application.User;
 using Application.User.Handlers;
-using Infrastructure.Database;
+using Infrastructure;
 
 namespace Api
 {
@@ -28,21 +27,19 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // Get SQL Server sorted
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DatabaseContext>(
-                opt => opt.UseSqlServer(connectionString)
-             );
-
             // Inject what we'll be using
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
             // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.StartsWith("Application")));
 
+            // Add the database infrastructure
+            services.AddInfrastructure(Configuration);
+            
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
+
+
 
         }
 

@@ -5,16 +5,12 @@
     <projectFile>../src/UI/UI/UI.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Updated Migrations and added better return for Validation">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/Response.cs" afterDir="false" />
+    <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Fixing responses">
+      <change afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Api.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +48,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Api.Contracts/Responses/RegisterUserResponse.cs" />
       <option value="$PROJECT_DIR$/Api.Core/Entities/User.cs" />
       <option value="$PROJECT_DIR$/Api.Business/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/Api/Controllers/UserController.cs" />
@@ -92,7 +87,6 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Migrations/20210209053347_Initial.Designer.cs" />
       <option value="$PROJECT_DIR$/src/Api/Api.csproj" />
       <option value="$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/IResponse.cs" />
@@ -103,6 +97,8 @@
       <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
       <option value="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -194,7 +190,7 @@
       <workItem from="1613090405204" duration="3201000" />
       <workItem from="1613102799064" duration="50000" />
       <workItem from="1613103055534" duration="1917000" />
-      <workItem from="1613105007404" duration="4759000" />
+      <workItem from="1613105007404" duration="5823000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -259,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613108911980</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixing responses">
+      <created>1613110281923</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613110281923</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +326,26 @@
     <MESSAGE value="Added unversioned files." />
     <MESSAGE value="Removed old reference" />
     <MESSAGE value="Updated Migrations and added better return for Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Migrations and added better return for Validation" />
+    <MESSAGE value="Fixing responses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing responses" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Api/Startup.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Api\Startup.cs" initialLine="38" containingFunctionPresentation="method 'ConfigureServices'">
+            <startOffsets>
+              <option value="1331" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1373" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
