@@ -10,6 +10,7 @@ using Application.Interfaces;
 using Application.User;
 using Application.User.Handlers;
 using Infrastructure;
+using Infrastructure.Providers.DateTime;
 using IAuthenticationService = Application.Interfaces.IAuthenticationService;
 
 namespace Api
@@ -30,15 +31,21 @@ namespace Api
             // Inject what we'll be using
             services.AddControllers();
             services.AddSwaggerGen();
+            
+            // Inject providers
+            services.AddScoped<IDateTimeProvider, DateTimeProvider>();
+            
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
             // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.
 
             // Add the database infrastructure
             services.AddInfrastructure(Configuration);
-            
+
+
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            
 
         }
 

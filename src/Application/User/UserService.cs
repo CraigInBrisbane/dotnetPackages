@@ -7,7 +7,6 @@ using Domain.DTOs;
 using Domain.Responses;
 using Infrastructure.Database;
 using Infrastructure.Database.Entities;
-using Infrastructure.Providers;
 using Infrastructure.Providers.DateTime;
 using Infrastructure.Providers.Encryption;
 using Microsoft.EntityFrameworkCore;
@@ -19,11 +18,13 @@ namespace Application.User
     {
         private readonly DatabaseContext _context;
         private readonly ILogger<UserService> _log;
+        private readonly IDateTimeProvider _dateTime;
 
-        public UserService(DatabaseContext context, ILogger<UserService> log)
+        public UserService(DatabaseContext context, ILogger<UserService> log, IDateTimeProvider dateTime)
         {
             _context = context;
             _log = log;
+            _dateTime = dateTime;
         }
 
         public async Task<RegisterUserResponse> Register(RegisterUserQuery request)
@@ -35,7 +36,7 @@ namespace Application.User
             var user = new Infrastructure.Database.Entities.User
             {
                 CountryId = request.CountryId,
-                Created = DateTimeOffset.Now,
+                Created = _dateTime.UtcNow(),
                 Firstname = request.Firstname,
                 Id = id,
                 Surname = request.Surname,
@@ -48,7 +49,7 @@ namespace Application.User
                 Id = Guid.NewGuid(),
                 Email = request.Email,
                 User = user,
-                Created = TimeProvider.Current.UtcNow,
+                Created = _dateTime.UtcNow()
             };
 
             await _context.Users.AddAsync(user);
@@ -120,7 +121,7 @@ namespace Application.User
                 };
             }
 
-            emailValidation.ValidatedDate = DateTimeOffset.UtcNow;
+            emailValidation.ValidatedDate = _dateTime.UtcNow();
             await _context.SaveChangesAsync();
 
             return new GenericResponse

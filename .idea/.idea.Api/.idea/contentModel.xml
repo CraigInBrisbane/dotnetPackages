@@ -95,11 +95,7 @@
           </e>
           <e p="DependencyInjection.cs" t="Include" />
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
-          <e p="Migrations" t="Include">
-            <e p="20210212071013_Initial.cs" t="Include" />
-            <e p="20210212071013_Initial.Designer.cs" t="Include" />
-            <e p="DatabaseContextModelSnapshot.cs" t="Include" />
-          </e>
+          <e p="Migrations" t="Include" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">
@@ -109,8 +105,8 @@
           </e>
           <e p="Providers" t="Include">
             <e p="DateTime" t="Include">
-              <e p="DefaultTimeProvider.cs" t="Include" />
-              <e p="TimeProvider.cs" t="Include" />
+              <e p="DateTimeProvider.cs" t="Include" />
+              <e p="IDateTimeProvider.cs" t="Include" />
             </e>
             <e p="Encryption" t="Include">
               <e p="EncryptionProvider.cs" t="Include" />
