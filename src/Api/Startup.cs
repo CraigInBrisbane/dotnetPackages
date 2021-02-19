@@ -1,4 +1,5 @@
 using Application.Authentication;
+using Application.Helpers;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace Api
             
             // Inject providers
             services.AddScoped<IDateTimeProvider, DateTimeProvider>();
+            services.AddScoped<ITokenHelper, TokenHelper>();
             
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
             // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.

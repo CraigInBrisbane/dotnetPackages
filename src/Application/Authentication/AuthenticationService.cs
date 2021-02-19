@@ -1,10 +1,13 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Helpers;
 using Application.Interfaces;
+using Application.User.Handlers;
 using Domain.Requests;
 using Domain.Responses;
 using Infrastructure.Database;
 using Infrastructure.Providers.Encryption;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -15,11 +18,15 @@ namespace Application.Authentication
 
         private readonly ILogger _logger;
         private readonly DatabaseContext _context;
+        private readonly IMediator _mediator;
+        private readonly ITokenHelper _tokenHelper;
         
-        public AuthenticationService(ILogger<AuthenticationService> logger, DatabaseContext context)
+        public AuthenticationService(ILogger<AuthenticationService> logger, DatabaseContext context, IMediator mediator, ITokenHelper tokenHelper)
         {
             _logger = logger;
             _context = context;
+            _mediator = mediator;
+            _tokenHelper = tokenHelper;
         }
         
         public async Task<AuthenticateUserResponse> Login(LoginRequest request)
@@ -60,14 +67,21 @@ namespace Application.Authentication
                     }
                     
                     _logger.LogInformation($"Login Success for {request.Username}");
+
+
+                    var userDetails = await _mediator.Send(new GetUserByIdQuery {Id = user.Id});
+
+                    var token = _tokenHelper.GenerateToken(userDetails.Data);
+                    
                     return new AuthenticateUserResponse
                     {
-                        Firstname = user.Firstname,
-                        Id = user.Id,
-                        Surname = user.Surname,
+                        //Firstname = user.Firstname,
+                        //Id = user.Id,
+                        //Surname = user.Surname,
+                        Token = token,
                         Message = "Login Success",
                         Success = true,
-                        ResponseCode = 200
+                        ResponseCode = 200,
                     };
                 }
             }

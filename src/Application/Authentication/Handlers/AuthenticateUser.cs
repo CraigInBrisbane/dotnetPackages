@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Application.Interfaces;
 using Domain.Requests;
 using Domain.Responses;
+using Infrastructure.Providers.Encryption;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -29,6 +30,12 @@ namespace Application.Authentication.Handlers
         public async Task<AuthenticateUserResponse> Handle(AuthenticateUserCommand request, CancellationToken cancellationToken)
         {
             var result = await _authenticationService.Login(new LoginRequest{Username = request.Username, Password = request.Password});
+
+            if (result.Success)
+            {
+                
+            }
+            
             return result;
         }
     }

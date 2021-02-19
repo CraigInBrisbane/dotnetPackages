@@ -10,5 +10,6 @@ namespace Application.Interfaces
         Task<RegisterUserResponse> Register(RegisterUserQuery request);
         Task<UserListResponse> GetUsers();
         Task<GenericResponse> ValidateEmail(Guid emailValidationId);
+        Task<UserResponse> GetUserById(Guid id);
     }
 }

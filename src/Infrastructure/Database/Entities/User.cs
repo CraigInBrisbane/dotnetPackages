@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -20,6 +21,8 @@ namespace Infrastructure.Database.Entities
         
         // Navigation Properties
         public ICollection<UserEmail> UserEmails { get; set; }
+        
+        public ICollection<UserRole> UserRoles { get; set; }
         
         
     }

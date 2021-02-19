@@ -44,6 +44,14 @@ namespace Application.User
                 Password = encryptedPassword
             };
 
+
+            var userRole = new UserRole
+            {
+                User = user,
+                Role = await _context.Roles.SingleAsync(x => x.Name == "User"),
+                Created = _dateTime.UtcNow()
+            };
+
             var userEmail = new UserEmail
             {
                 Id = Guid.NewGuid(),
@@ -54,6 +62,7 @@ namespace Application.User
 
             await _context.Users.AddAsync(user);
             await _context.UserEmails.AddAsync(userEmail);
+            await _context.UserRoles.AddAsync(userRole);
 
             await _context.SaveChangesAsync();
 
@@ -71,7 +80,6 @@ namespace Application.User
         public async Task<UserListResponse> GetUsers()
         {
             var data = await _context.Users
-                .Include(x => x.UserEmails)
                 .Select(x => new UserDto
                 {
                     Email = new EmailDto //TODO: This seems like we're doing 4 queries... can maybe be simplified?
@@ -82,8 +90,13 @@ namespace Application.User
                         LastValidated = x.UserEmails.OrderByDescending(u => u.Created)
                             .FirstOrDefault(y => y.ValidatedDate.HasValue).Email,
                         EmailValidationId = x.UserEmails.OrderByDescending(u => u.Created)
-                            .FirstOrDefault(x => x.ValidatedDate.HasValue == false).Id,
+                            .FirstOrDefault(u => u.ValidatedDate.HasValue == false).Id,
                     },
+                    Roles = x.UserRoles.Select(r=> new RoleDto
+                    {
+                        Id = r.Role.Id,
+                        Name = r.Role.Name
+                    }).ToList(),
                     Firstname = x.Firstname,
                     Id = x.Id,
                     Surname = x.Surname
@@ -91,6 +104,43 @@ namespace Application.User
 
             return new UserListResponse
                 {Data = data, Message = $"Returning {data.Count} Users", Success = true, ResponseCode = 200};
+        }
+
+        public async Task<UserResponse> GetUserById(Guid id)
+        {
+            var data = await _context.Users
+                .Select(x => new UserDto
+                {
+                    Email = new EmailDto //TODO: This seems like we're doing 4 queries... can maybe be simplified?
+                    {
+                        Current = x.UserEmails.OrderByDescending(u => u.Created).FirstOrDefault().Email,
+                        CurrentIsValidated = x.UserEmails.OrderByDescending(u => u.Created).FirstOrDefault()
+                            .ValidatedDate.HasValue,
+                        LastValidated = x.UserEmails.OrderByDescending(u => u.Created)
+                            .FirstOrDefault(y => y.ValidatedDate.HasValue).Email,
+                        EmailValidationId = x.UserEmails.OrderByDescending(u => u.Created)
+                            .FirstOrDefault(u => u.ValidatedDate.HasValue == false).Id,
+                    },
+                    Roles = x.UserRoles.Select(r => new RoleDto
+                    {
+                        Id = r.Role.Id,
+                        Name = r.Role.Name
+                    }).ToList(),
+                    Firstname = x.Firstname,
+                    Id = x.Id,
+                    Surname = x.Surname
+                })
+                .SingleOrDefaultAsync(x => x.Id == id);
+
+            if (data != null)
+                return new UserResponse
+                {
+                    Data = data
+                };
+            _log.LogWarning("Attempt to get user with Id {Id} failed");
+            
+            return null;
+
         }
 
         public async Task<GenericResponse> ValidateEmail(Guid emailValidationId)

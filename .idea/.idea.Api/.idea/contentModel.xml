@@ -36,6 +36,10 @@
             </e>
           </e>
           <e p="bin" t="ExcludeRecursive" />
+          <e p="Helpers" t="Include">
+            <e p="ITokenHelper.cs" t="Include" />
+            <e p="TokenHelper.cs" t="Include" />
+          </e>
           <e p="Interfaces" t="Include">
             <e p="IAuthenticationService.cs" t="Include" />
             <e p="IUserService.cs" t="Include" />
@@ -49,6 +53,7 @@
           </e>
           <e p="User" t="Include">
             <e p="Handlers" t="Include">
+              <e p="GetUserByIdQuery.cs" t="Include" />
               <e p="GetUsersQuery.cs" t="Include" />
               <e p="RegisterUserCommand.cs" t="Include" />
               <e p="ValidateEmailCommand.cs" t="Include" />
@@ -61,6 +66,7 @@
           <e p="Domain.csproj" t="IncludeRecursive" />
           <e p="Dtos" t="Include">
             <e p="EmailDto.cs" t="Include" />
+            <e p="RoleDto.cs" t="Include" />
             <e p="UserDto.cs" t="Include" />
           </e>
           <e p="obj" t="ExcludeRecursive">
@@ -80,6 +86,7 @@
             <e p="RegisterUserResponse.cs" t="Include" />
             <e p="Response.cs" t="Include" />
             <e p="UserListResponse.cs" t="Include" />
+            <e p="UserResponse.cs" t="Include" />
           </e>
         </e>
         <e p="Infrastructure" t="IncludeRecursive">
@@ -89,13 +96,22 @@
             <e p="DatabaseContextFactory.cs" t="Include" />
             <e p="Entities" t="Include">
               <e p="BaseEntity.cs" t="Include" />
+              <e p="BaseReferenceEntity.cs" t="Include" />
+              <e p="Role.cs" t="Include" />
               <e p="User.cs" t="Include" />
               <e p="UserEmail.cs" t="Include" />
+              <e p="UserRole.cs" t="Include" />
             </e>
           </e>
           <e p="DependencyInjection.cs" t="Include" />
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
-          <e p="Migrations" t="Include" />
+          <e p="Migrations" t="Include">
+            <e p="20210219020525_Initial.cs" t="Include" />
+            <e p="20210219020525_Initial.Designer.cs" t="Include" />
+            <e p="20210219045509_AddRoles.cs" t="Include" />
+            <e p="20210219045509_AddRoles.Designer.cs" t="Include" />
+            <e p="DatabaseContextModelSnapshot.cs" t="Include" />
+          </e>
           <e p="obj" t="ExcludeRecursive">
             <e p="Debug" t="Include">
               <e p="netcoreapp3.1" t="Include">

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Domain.DTOs
 {
@@ -8,5 +10,6 @@ namespace Domain.DTOs
         public string Firstname { get; set; }
         public string Surname { get; set; }
         public EmailDto Email { get; set; }
+        public ICollection<RoleDto> Roles { get; set; }
     }
 }

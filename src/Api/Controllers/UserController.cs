@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Application.User.Handlers;
 using Domain.Requests;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers
 {
@@ -30,6 +31,13 @@ namespace Api.Controllers
                 Email = request.Email, Firstname = request.Firstname, Password = request.Password,
                 Surname = request.Surname, CountryId = request.CountryId
             });
+            return Ok(result);
+        }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var result = await this._mediatr.Send(new GetUserByIdQuery {Id = id});
             return Ok(result);
         }
 
