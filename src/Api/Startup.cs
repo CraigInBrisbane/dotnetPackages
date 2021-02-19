@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Application.Authentication;
 using Application.Helpers;
 using MediatR;
@@ -12,6 +16,8 @@ using Application.User;
 using Application.User.Handlers;
 using Infrastructure;
 using Infrastructure.Providers.DateTime;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using IAuthenticationService = Application.Interfaces.IAuthenticationService;
 
 namespace Api
@@ -28,17 +34,73 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             // Inject what we'll be using
             services.AddControllers();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(setup =>
+            {
+                setup.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "test api",
+                    Version = "v1"
+                });
+                
+                setup.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"JWT Authorization header using the Bearer scheme.  
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      Example: 'Bearer [jwtToken]'",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+                
+                setup.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+
+            });
             
+            services.AddAuthentication(
+                    options =>
+                    {
+                        options.DefaultAuthenticateScheme = "JwtBearer";
+                        options.DefaultChallengeScheme = "JwtBearer";
+                    })
+                .AddJwtBearer("JwtBearer", options =>
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuerSigningKey = true,
+                            IssuerSigningKey =
+                                new SymmetricSecurityKey(
+                                    Encoding.UTF8.GetBytes(
+                                        "ReplaceFromConfigWhenAble")), // Need to move to AppSettings.
+                            ValidateIssuer = false,
+                            ValidateAudience = false,
+                            ValidateLifetime = true,
+                            ClockSkew = TimeSpan.FromMinutes(5)
+                        };
+                    }
+                );
+
+
             // Inject providers
             services.AddScoped<IDateTimeProvider, DateTimeProvider>();
             services.AddScoped<ITokenHelper, TokenHelper>();
-            
+
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);
-            // We're separating mappings into separate entity files. So we will scan all the classes to find mapping profiles, and inject them now. Instead of one at a time.
 
             // Add the database infrastructure
             services.AddInfrastructure(Configuration);
@@ -47,8 +109,6 @@ namespace Api
             // Inject our classes
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
-            
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,15 +130,9 @@ namespace Api
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(x =>
-            {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "API endpoint");
-            });
+            app.UseSwaggerUI(x => { x.SwaggerEndpoint("/swagger/v1/swagger.json", "API endpoint V1"); });
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -30,9 +31,8 @@ namespace Application.Helpers
             {
                 new Claim(ClaimTypes.Name, user.Email.Current),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Nbf, _dateTime.UtcNow().ToUnixTimeSeconds().ToString()), // Not Before
-                new Claim(JwtRegisteredClaimNames.Exp,
-                    _dateTime.UtcNow().AddDays(1).ToUnixTimeSeconds().ToString()), // Expires
+                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()), // Not Before
+                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()), // Expires
             };
 
             // Add Roles

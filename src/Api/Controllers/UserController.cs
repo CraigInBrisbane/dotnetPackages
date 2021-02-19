@@ -34,7 +34,7 @@ namespace Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet, Route("{id}")]
+        [HttpGet, Route("{id}"), Authorize]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await this._mediatr.Send(new GetUserByIdQuery {Id = id});
@@ -45,7 +45,7 @@ namespace Api.Controllers
         /// Gets a full list of users
         /// </summary>
         /// <returns>List of Users</returns>
-        [HttpGet]
+        [HttpGet, Authorize]
         public async Task<IActionResult> GetUsers()
         {
             var result = await this._mediatr.Send(new GetUsersQuery());
