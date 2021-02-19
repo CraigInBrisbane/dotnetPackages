@@ -9,29 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
-      <change afterPath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/User/Handlers/GetUserByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/DTOs/RoleDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/UserResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Database/Entities/BaseReferenceEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Database/Entities/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Database/Entities/UserRole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210219045509_AddRoles.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/20210219045509_AddRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Database/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Database/DatabaseContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Database/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Database/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Migrations/DatabaseContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Migrations/DatabaseContextModelSnapshot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +51,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Application/User/Handlers/RegisterUserCommand.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Migrations/20210209053347_Initial.Designer.cs" />
       <option value="$PROJECT_DIR$/src/Api/Api.csproj" />
@@ -101,7 +79,6 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/EncryptionProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Api/JwtManager.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/JwtProvider.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
@@ -120,9 +97,11 @@
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUserByIdQuery.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/src/Api/appsettings.json" />
+      <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -217,7 +196,7 @@
       <workItem from="1613103055534" duration="1917000" />
       <workItem from="1613105007404" duration="12262000" />
       <workItem from="1613135938133" duration="101000" />
-      <workItem from="1613695994635" duration="10203000" />
+      <workItem from="1613695994635" duration="10530000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -310,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613700351116</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added Roles and can generate JWT token on login.">
+      <created>1613714985851</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613714985851</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +364,8 @@
     <MESSAGE value="Removed AutoMapper because it's a headache." />
     <MESSAGE value="Added Authenticate option." />
     <MESSAGE value="Added Date Time service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Date Time service" />
+    <MESSAGE value="Added Roles and can generate JWT token on login." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Roles and can generate JWT token on login." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -408,6 +395,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs</url>
+          <line>73</line>
+          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\Authentication\AuthenticationService.cs" initialLine="73" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="2715" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2772" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

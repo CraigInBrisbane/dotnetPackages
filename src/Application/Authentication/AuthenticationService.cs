@@ -75,9 +75,9 @@ namespace Application.Authentication
                     
                     return new AuthenticateUserResponse
                     {
-                        //Firstname = user.Firstname,
-                        //Id = user.Id,
-                        //Surname = user.Surname,
+                        Firstname = user.Firstname,
+                        Id = user.Id,
+                        Surname = user.Surname,
                         Token = token,
                         Message = "Login Success",
                         Success = true,
