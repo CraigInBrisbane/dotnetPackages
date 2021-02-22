@@ -46,13 +46,14 @@ namespace Api
                     new HeaderApiVersionReader("X-Version"), // Specify API Version in Header. Add X-Version 1.0' OR
                     new MediaTypeApiVersionReader("version") // Specify the version in the Accept, but adding 'version=1.0'
                 );
+                options.ReportApiVersions = true; // Allow showing available versions (In response headers)
             });
 
             services.AddSwaggerGen(setup =>
             {
                 setup.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "test api",
+                    Title = "Demonstration API Version 1",
                     Version = "v1"
                 });
 
@@ -129,20 +130,13 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
-
             app.UseSerilogRequestLogging();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-
+            app.UseAuthentication();
+            app.UseAuthorization(); 
             app.UseSwagger();
-
             app.UseSwaggerUI(x => { x.SwaggerEndpoint("/swagger/v1/swagger.json", "API endpoint V1"); });
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

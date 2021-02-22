@@ -9,11 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +191,8 @@
       <workItem from="1613135938133" duration="101000" />
       <workItem from="1613695994635" duration="13534000" />
       <workItem from="1613958299331" duration="110000" />
-      <workItem from="1613958460079" duration="1187000" />
+      <workItem from="1613958460079" duration="1505000" />
+      <workItem from="1613960361594" duration="679000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -302,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613715156308</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added ability to version APIs.">
+      <created>1613959733529</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1613959733529</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,24 +376,7 @@
     <MESSAGE value="Added Date Time service" />
     <MESSAGE value="Added Roles and can generate JWT token on login." />
     <MESSAGE value="Returned details to token call" />
-    <option name="LAST_COMMIT_MESSAGE" value="Returned details to token call" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Application/User/UserService.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="31" containingFunctionPresentation="method 'Register'" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Application/User/UserService.cs</url>
-          <line>68</line>
-          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="67" containingFunctionPresentation="method 'Register'" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added ability to version APIs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to version APIs." />
   </component>
 </project>
