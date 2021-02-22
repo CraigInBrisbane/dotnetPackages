@@ -8,6 +8,7 @@ namespace Api.Controllers
 {
     
     [Route("api/token")]
+    [ApiVersion("1.0")]
     public class Token  : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,6 +19,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
             var result = await _mediator.Send(new AuthenticateUserCommand

@@ -9,11 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +39,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3646CADE-4F16-432A-92EA-ED541AAF2AEC/50/bda1ddba/UserListResponse.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3834795B-F41B-4E62-8161-509ECA0F5822/3/Mediator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3BB42FD3-8BD8-407B-9667-FBF8CE1367E9/78/DateTimeOffset.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Storage/Software Repositories/Personal/Api/Api/src/Domain/Responses/AuthenticateUserResponse.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C3B54F9F-95A5-46D2-A55A-DC5326E8C90B/9d/1a8c38a9/IUserService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Storage/Software Repositories/Personal/Api/Api/src/Application/Authentication/Handlers/AuthenticateUser.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D2B0EF7B-A8C3-4AF1-95CC-501C0131D7BA/C/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Requests/RegisterUserRequest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/300BEDA2-CEB5-46AD-AE18-4E21C8DA5BDD/06/b661c249/ApiConventionResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/DTOs/EmailDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -85,7 +78,6 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Api/JwtManager.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/JwtProvider.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Entities/Role.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Entities/UserRole.cs" />
@@ -103,8 +95,9 @@
       <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
     </changedPaths>
   </component>
@@ -119,7 +112,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997028" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -201,6 +194,8 @@
       <workItem from="1613105007404" duration="12262000" />
       <workItem from="1613135938133" duration="101000" />
       <workItem from="1613695994635" duration="13534000" />
+      <workItem from="1613958299331" duration="110000" />
+      <workItem from="1613958460079" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -385,27 +380,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Application/User/UserService.cs</url>
           <line>31</line>
-          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="31" containingFunctionPresentation="method 'Register'">
-            <startOffsets>
-              <option value="958" />
-            </startOffsets>
-            <endOffsets>
-              <option value="982" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="31" containingFunctionPresentation="method 'Register'" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/Application/User/UserService.cs</url>
           <line>68</line>
-          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="67" containingFunctionPresentation="method 'Register'">
-            <startOffsets>
-              <option value="2158" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2461" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Storage\Software Repositories\Personal\Api\Api\src\Application\User\UserService.cs" initialLine="67" containingFunctionPresentation="method 'Register'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

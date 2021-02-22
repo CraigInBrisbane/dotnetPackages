@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers
 {
-    [Route("api/user")]
+    [Route("api/users")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -23,7 +24,7 @@ namespace Api.Controllers
         /// Registers a new user
         /// </summary>
         /// <returns>Primary key of new user</returns>
-        [HttpPost]
+        [HttpPost, MapToApiVersion("1.0")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
             var result = await this._mediatr.Send(new RegisterUserQuery
@@ -34,7 +35,7 @@ namespace Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet, Route("{id}"), Authorize]
+        [HttpGet, Route("{id}"), Authorize, MapToApiVersion("1.0")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await this._mediatr.Send(new GetUserByIdQuery {Id = id});
@@ -45,14 +46,14 @@ namespace Api.Controllers
         /// Gets a full list of users
         /// </summary>
         /// <returns>List of Users</returns>
-        [HttpGet, Authorize]
+        [HttpGet, Authorize, MapToApiVersion("1.0")]
         public async Task<IActionResult> GetUsers()
         {
             var result = await this._mediatr.Send(new GetUsersQuery());
             return Ok(result);
         }
 
-        [HttpPost, Route("{emailValidationId}/validate")]
+        [HttpPost, Route("{emailValidationId}/validate"), MapToApiVersion("1.0")]
         public async Task<IActionResult> ValidateEmail(Guid emailValidationId)
         {
             var result = await _mediatr.Send(new ValidateEmailCommand(emailValidationId));

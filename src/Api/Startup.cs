@@ -16,6 +16,8 @@ using Application.User;
 using Application.User.Handlers;
 using Infrastructure;
 using Infrastructure.Providers.DateTime;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using IAuthenticationService = Application.Interfaces.IAuthenticationService;
@@ -36,6 +38,16 @@ namespace Api
         {
             // Inject what we'll be using
             services.AddControllers();
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = ApiVersion.Default;
+                options.ApiVersionReader = ApiVersionReader.Combine(
+                    new HeaderApiVersionReader("X-Version"), // Specify API Version in Header. Add X-Version 1.0' OR
+                    new MediaTypeApiVersionReader("version") // Specify the version in the Accept, but adding 'version=1.0'
+                );
+            });
+
             services.AddSwaggerGen(setup =>
             {
                 setup.SwaggerDoc("v1", new OpenApiInfo
@@ -43,7 +55,7 @@ namespace Api
                     Title = "test api",
                     Version = "v1"
                 });
-                
+
                 setup.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using the Bearer scheme.  
@@ -54,7 +66,7 @@ namespace Api
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer"
                 });
-                
+
                 setup.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
@@ -69,9 +81,8 @@ namespace Api
                         Array.Empty<string>()
                     }
                 });
-
             });
-            
+
             services.AddAuthentication(
                     options =>
                     {

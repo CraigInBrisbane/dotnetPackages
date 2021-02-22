@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Storage\Software Repositories\Personal\Api\Api" t="IncludeFlat">
+    <e p="C:\Storage\Repositories\craig\dotnetPackages" t="IncludeFlat">
       <e p="Api.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
@@ -133,6 +133,6 @@
       <e p="tests" t="Include" />
     </e>
     <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Api.-1486354545.00" t="ExcludeRecursive" />
+    <e p="C:\Users\craig\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Api.-752037869.00" t="ExcludeRecursive" />
   </component>
 </project>
