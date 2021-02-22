@@ -120,9 +120,9 @@
             </e>
           </e>
           <e p="Providers" t="Include">
-            <e p="DateTime" t="Include">
-              <e p="DateTimeProvider.cs" t="Include" />
-              <e p="IDateTimeProvider.cs" t="Include" />
+            <e p="Clock" t="Include">
+              <e p="ClockProvider.cs" t="Include" />
+              <e p="IClockProvider.cs" t="Include" />
             </e>
             <e p="Encryption" t="Include">
               <e p="EncryptionProvider.cs" t="Include" />

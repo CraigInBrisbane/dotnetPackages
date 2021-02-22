@@ -1,18 +1,18 @@
 using System;
 
-namespace Infrastructure.Providers.DateTime
+namespace Infrastructure.Providers.Clock
 {
-    public class DateTimeProvider : IDateTimeProvider
+    public class ClockProvider : IClockProvider
     {
 
         private readonly TimeSpan _difference;
         
-        public DateTimeProvider()
+        public ClockProvider()
         {
             _difference = TimeSpan.Zero;
         }
 
-        public DateTimeProvider(DateTimeOffset currentDate)
+        public ClockProvider(DateTimeOffset currentDate)
         {
             _difference = currentDate - DateTimeOffset.UtcNow;
         }
@@ -20,6 +20,11 @@ namespace Infrastructure.Providers.DateTime
         public DateTimeOffset UtcNow()
         {
             return DateTimeOffset.UtcNow + _difference;
+        }
+
+        public DateTime Now()
+        {
+            return DateTime.Now + _difference;
         }
     }
 }

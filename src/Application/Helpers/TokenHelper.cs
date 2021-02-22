@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.DTOs;
 using Infrastructure.Database.Entities;
-using Infrastructure.Providers.DateTime;
+using Infrastructure.Providers.Clock;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -15,12 +15,12 @@ namespace Application.Helpers
 {
     public class TokenHelper : ITokenHelper
     {
-        private readonly IDateTimeProvider _dateTime;
+        private readonly IClockProvider _clock;
         private readonly IConfiguration _config;
 
-        public TokenHelper(IDateTimeProvider dateTime, IConfiguration config)
+        public TokenHelper(IClockProvider clock, IConfiguration config)
         {
-            _dateTime = dateTime;
+            _clock = clock;
             _config = config;
         }
 
@@ -31,8 +31,8 @@ namespace Application.Helpers
             {
                 new Claim(ClaimTypes.Name, user.Email.Current),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()), // Not Before
-                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()), // Expires
+                new Claim(JwtRegisteredClaimNames.Nbf, new DateTimeOffset(_clock.Now()).ToUnixTimeSeconds().ToString()), // Not Before
+                new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(_clock.Now().AddDays(1)).ToUnixTimeSeconds().ToString()), // Expires
             };
 
             // Add Roles

@@ -15,7 +15,7 @@ using Application.Interfaces;
 using Application.User;
 using Application.User.Handlers;
 using Infrastructure;
-using Infrastructure.Providers.DateTime;
+using Infrastructure.Providers.Clock;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
@@ -102,14 +102,14 @@ namespace Api
                             ValidateIssuer = false,
                             ValidateAudience = false,
                             ValidateLifetime = true,
-                            ClockSkew = TimeSpan.FromMinutes(5)
+                            ClockSkew = TimeSpan.FromMinutes(1)
                         };
                     }
                 );
 
 
             // Inject providers
-            services.AddScoped<IDateTimeProvider, DateTimeProvider>();
+            services.AddScoped<IClockProvider, ClockProvider>();
             services.AddScoped<ITokenHelper, TokenHelper>();
 
             services.AddMediatR(typeof(RegisterUserQuery).Assembly);

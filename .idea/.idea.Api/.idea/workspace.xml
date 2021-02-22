@@ -11,6 +11,10 @@
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/DateTimeProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/IDateTimeProvider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +48,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" />
-      <option value="$PROJECT_DIR$/src/Infrastructure/Database/Migrations/20210209053347_Initial.Designer.cs" />
       <option value="$PROJECT_DIR$/src/Api/Api.csproj" />
       <option value="$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
@@ -70,8 +72,6 @@
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/Encryptor.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/EncryptionProvider.cs" />
-      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" />
-      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Api/JwtManager.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/JwtProvider.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" />
@@ -88,13 +88,17 @@
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUserByIdQuery.cs" />
       <option value="$PROJECT_DIR$/src/Api/appsettings.json" />
-      <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/IDateTimeProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/DateTimeProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -192,7 +196,8 @@
       <workItem from="1613695994635" duration="13534000" />
       <workItem from="1613958299331" duration="110000" />
       <workItem from="1613958460079" duration="1505000" />
-      <workItem from="1613960361594" duration="679000" />
+      <workItem from="1613960361594" duration="954000" />
+      <workItem from="1613967939812" duration="739000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -306,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613959733529</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed Authentication. Jwt Tokens working now.">
+      <created>1613961285283</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1613961285283</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +389,7 @@
     <MESSAGE value="Added Roles and can generate JWT token on login." />
     <MESSAGE value="Returned details to token call" />
     <MESSAGE value="Added ability to version APIs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to version APIs." />
+    <MESSAGE value="Fixed Authentication. Jwt Tokens working now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Authentication. Jwt Tokens working now." />
   </component>
 </project>

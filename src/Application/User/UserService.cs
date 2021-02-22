@@ -7,7 +7,7 @@ using Domain.DTOs;
 using Domain.Responses;
 using Infrastructure.Database;
 using Infrastructure.Database.Entities;
-using Infrastructure.Providers.DateTime;
+using Infrastructure.Providers.Clock;
 using Infrastructure.Providers.Encryption;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -18,13 +18,13 @@ namespace Application.User
     {
         private readonly DatabaseContext _context;
         private readonly ILogger<UserService> _log;
-        private readonly IDateTimeProvider _dateTime;
+        private readonly IClockProvider _clock;
 
-        public UserService(DatabaseContext context, ILogger<UserService> log, IDateTimeProvider dateTime)
+        public UserService(DatabaseContext context, ILogger<UserService> log, IClockProvider clock)
         {
             _context = context;
             _log = log;
-            _dateTime = dateTime;
+            _clock = clock;
         }
 
         public async Task<RegisterUserResponse> Register(RegisterUserQuery request)
@@ -36,7 +36,7 @@ namespace Application.User
             var user = new Infrastructure.Database.Entities.User
             {
                 CountryId = request.CountryId,
-                Created = _dateTime.UtcNow(),
+                Created = _clock.UtcNow(),
                 Firstname = request.Firstname,
                 Id = id,
                 Surname = request.Surname,
@@ -49,7 +49,7 @@ namespace Application.User
             {
                 User = user,
                 Role = await _context.Roles.SingleAsync(x => x.Name == "User"),
-                Created = _dateTime.UtcNow()
+                Created = _clock.UtcNow()
             };
 
             var userEmail = new UserEmail
@@ -57,7 +57,7 @@ namespace Application.User
                 Id = Guid.NewGuid(),
                 Email = request.Email,
                 User = user,
-                Created = _dateTime.UtcNow()
+                Created = _clock.UtcNow()
             };
 
             await _context.Users.AddAsync(user);
@@ -171,7 +171,7 @@ namespace Application.User
                 };
             }
 
-            emailValidation.ValidatedDate = _dateTime.UtcNow();
+            emailValidation.ValidatedDate = _clock.UtcNow();
             await _context.SaveChangesAsync();
 
             return new GenericResponse
