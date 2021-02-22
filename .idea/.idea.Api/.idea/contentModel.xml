@@ -32,6 +32,7 @@
           <e p="Authentication" t="Include">
             <e p="AuthenticationService.cs" t="Include" />
             <e p="Handlers" t="Include">
+              <e p="AddUserRole.cs" t="Include" />
               <e p="AuthenticateUser.cs" t="Include" />
             </e>
           </e>
@@ -87,6 +88,7 @@
             <e p="Response.cs" t="Include" />
             <e p="UserListResponse.cs" t="Include" />
             <e p="UserResponse.cs" t="Include" />
+            <e p="UserRoleAdditionResponse.cs" t="Include" />
           </e>
         </e>
         <e p="Infrastructure" t="IncludeRecursive">

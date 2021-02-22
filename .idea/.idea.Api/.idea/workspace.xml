@@ -9,11 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
+      <change afterPath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AddUserRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/UserRoleAdditionResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/EncryptionProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +42,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Storage/Repositories/Craig/dotnetPackages/src/Application/Authentication/Handlers/AuthenticateUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Requests/RegisterUserRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" root0="FORCE_HIGHLIGHTING" />
@@ -47,8 +52,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Domain/Responses/Response.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/ResponseStatus.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
@@ -64,7 +67,6 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Entities/UserEmail.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Requests/LoginRequest.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/LoginResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/Encryptor.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/EncryptionProvider.cs" />
       <option value="$PROJECT_DIR$/src/Api/JwtManager.cs" />
@@ -83,10 +85,7 @@
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUserByIdQuery.cs" />
       <option value="$PROJECT_DIR$/src/Api/appsettings.json" />
-      <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
@@ -98,6 +97,12 @@
       <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionHelper.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/UserRoleAdditionResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Authentication/Handlers/AddUserRole.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -197,7 +202,7 @@
       <workItem from="1613958460079" duration="1505000" />
       <workItem from="1613960361594" duration="954000" />
       <workItem from="1613967939812" duration="1189000" />
-      <workItem from="1613970789548" duration="288000" />
+      <workItem from="1613970789548" duration="2901000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -325,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613969117779</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Moving Encryption to Helper">
+      <created>1613971141205</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1613971141206</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +410,26 @@
     <MESSAGE value="Added ability to version APIs." />
     <MESSAGE value="Fixed Authentication. Jwt Tokens working now." />
     <MESSAGE value="Renamed DateTime to Clock and using it for Token." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed DateTime to Clock and using it for Token." />
+    <MESSAGE value="Moving Encryption to Helper" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving Encryption to Helper" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Api/Controllers/UserController.cs</url>
+          <line>63</line>
+          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\src\Api\Controllers\UserController.cs" initialLine="63" containingFunctionPresentation="method 'AddRoleToUser'">
+            <startOffsets>
+              <option value="2050" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2143" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

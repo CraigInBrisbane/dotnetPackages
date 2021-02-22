@@ -2,8 +2,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Application.Authentication.Handlers;
 using Application.User.Handlers;
 using Domain.Requests;
+using Mapster;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers
@@ -27,11 +29,7 @@ namespace Api.Controllers
         [HttpPost, MapToApiVersion("1.0")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
-            var result = await this._mediatr.Send(new RegisterUserQuery
-            {
-                Email = request.Email, Firstname = request.Firstname, Password = request.Password,
-                Surname = request.Surname, CountryId = request.CountryId
-            });
+            var result = await this._mediatr.Send(request.Adapt<RegisterUserQuery>());
             return Ok(result);
         }
 
@@ -57,6 +55,13 @@ namespace Api.Controllers
         public async Task<IActionResult> ValidateEmail(Guid emailValidationId)
         {
             var result = await _mediatr.Send(new ValidateEmailCommand(emailValidationId));
+            return Ok(result);
+        }
+
+        [HttpPost, Route("{userId}/roles"), MapToApiVersion("1.0")]
+        public async Task<IActionResult> AddRoleToUser(Guid userId, int roleId)
+        {
+            var result = await _mediatr.Send(new AddUserRoleRequest { UserId = userId, RoleId = roleId});
             return Ok(result);
         }
     }

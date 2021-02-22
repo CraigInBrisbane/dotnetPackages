@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Application.Authentication.Handlers;
 using Domain.Requests;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,9 +23,7 @@ namespace Api.Controllers
         [MapToApiVersion("1.0")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
-            var result = await _mediator.Send(new AuthenticateUserCommand
-                {Username = request.Username, Password = request.Password});
-            
+            var result = await _mediator.Send(request.Adapt<AuthenticateUserCommand>());
             return Ok(result);
         }
         
