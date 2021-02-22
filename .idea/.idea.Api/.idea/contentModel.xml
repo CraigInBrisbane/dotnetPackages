@@ -104,6 +104,9 @@
             </e>
           </e>
           <e p="DependencyInjection.cs" t="Include" />
+          <e p="Helpers" t="Include">
+            <e p="EncryptionHelper.cs" t="Include" />
+          </e>
           <e p="Infrastructure.csproj" t="IncludeRecursive" />
           <e p="Migrations" t="Include">
             <e p="20210219020525_Initial.cs" t="Include" />
@@ -123,9 +126,6 @@
             <e p="Clock" t="Include">
               <e p="ClockProvider.cs" t="Include" />
               <e p="IClockProvider.cs" t="Include" />
-            </e>
-            <e p="Encryption" t="Include">
-              <e p="EncryptionProvider.cs" t="Include" />
             </e>
           </e>
         </e>

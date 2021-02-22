@@ -10,11 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AuthenticateUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/DateTimeProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/IDateTimeProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/EncryptionProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionHelper.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +47,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Api/Api.csproj" />
-      <option value="$PROJECT_DIR$/src/Application/User/Mappings/Mappings.cs" />
-      <option value="$PROJECT_DIR$/src/Application/User/Handlers/ValidateEmailCommand.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/IResponse.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/Response.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/ResponseStatus.cs" />
@@ -92,13 +87,17 @@
       <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
-      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/IDateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Application/Helpers/ITokenHelper.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/IDateTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/DateTimeProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/ClockProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Clock/IClockProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Api/Startup.cs" />
       <option value="$PROJECT_DIR$/src/Application/Helpers/TokenHelper.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionProvider.cs" />
+      <option value="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionHelper.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -197,7 +196,8 @@
       <workItem from="1613958299331" duration="110000" />
       <workItem from="1613958460079" duration="1505000" />
       <workItem from="1613960361594" duration="954000" />
-      <workItem from="1613967939812" duration="739000" />
+      <workItem from="1613967939812" duration="1189000" />
+      <workItem from="1613970789548" duration="288000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -318,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613961285283</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Renamed DateTime to Clock and using it for Token.">
+      <created>1613969117779</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1613969117779</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +397,7 @@
     <MESSAGE value="Returned details to token call" />
     <MESSAGE value="Added ability to version APIs." />
     <MESSAGE value="Fixed Authentication. Jwt Tokens working now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Authentication. Jwt Tokens working now." />
+    <MESSAGE value="Renamed DateTime to Clock and using it for Token." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed DateTime to Clock and using it for Token." />
   </component>
 </project>

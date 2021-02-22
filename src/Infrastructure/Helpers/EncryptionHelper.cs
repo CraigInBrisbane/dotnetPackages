@@ -3,9 +3,9 @@ using System.Collections;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Infrastructure.Providers.Encryption
+namespace Infrastructure.Helpers
 {
-    public static class EncryptionProvider
+    public static class EncryptionHelper
     {
         public static string GenerateSaltedHash(string plainText, string salt)
         {

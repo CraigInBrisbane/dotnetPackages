@@ -7,8 +7,8 @@ using Domain.DTOs;
 using Domain.Responses;
 using Infrastructure.Database;
 using Infrastructure.Database.Entities;
+using Infrastructure.Helpers;
 using Infrastructure.Providers.Clock;
-using Infrastructure.Providers.Encryption;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -31,7 +31,7 @@ namespace Application.User
         {
             var id = Guid.NewGuid();
 
-            var encryptedPassword = EncryptionProvider.GenerateSaltedHash(request.Password, id.ToString());
+            var encryptedPassword = EncryptionHelper.GenerateSaltedHash(request.Password, id.ToString());
             
             var user = new Infrastructure.Database.Entities.User
             {

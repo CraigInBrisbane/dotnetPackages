@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Application.Interfaces;
 using Domain.Requests;
 using Domain.Responses;
-using Infrastructure.Providers.Encryption;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

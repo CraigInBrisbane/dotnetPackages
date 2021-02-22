@@ -6,7 +6,7 @@ using Application.User.Handlers;
 using Domain.Requests;
 using Domain.Responses;
 using Infrastructure.Database;
-using Infrastructure.Providers.Encryption;
+using Infrastructure.Helpers;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -44,7 +44,7 @@ namespace Application.Authentication
             if (matchedEmail is not null)
             {
                 var encryptedPassword =
-                    EncryptionProvider.GenerateSaltedHash(request.Password, matchedEmail.User.Id.ToString());
+                    EncryptionHelper.GenerateSaltedHash(request.Password, matchedEmail.User.Id.ToString());
 
                 var user = await _context
                     .Users
