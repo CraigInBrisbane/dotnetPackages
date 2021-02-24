@@ -9,15 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7111ad-4ef5-4cfd-a796-b9639e491ac7" name="Default Changelist" comment="Added Authenticate option.">
-      <change afterPath="$PROJECT_DIR$/src/Application/Authentication/Handlers/AddUserRole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/UserRoleAdditionResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/User/Handlers/ChangeUserEmailCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Responses/ChangeUserEmailResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Application.Tests/Application.Tests.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Application.Tests/UserTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/Token.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Api.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/User/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/User/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,21 +45,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Storage/Repositories/Craig/dotnetPackages/src/Application/Authentication/Handlers/AuthenticateUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Requests/RegisterUserRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377B61B6-13EA-444F-826F-377D9474FFCA/e4/640008f2/TestInvoker`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1C82971A-7418-447E-8FEB-D32D0F45FA53/2F/ParameterExpression.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Responses/UserListResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377B61B6-13EA-444F-826F-377D9474FFCA/a6/a93ef5e6/ExecutionTimer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3BB42FD3-8BD8-407B-9667-FBF8CE1367E9/3A/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3BB42FD3-8BD8-407B-9667-FBF8CE1367E9/58/Activator.RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/DTOs/EmailDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/DTOs/UserDto.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377B61B6-13EA-444F-826F-377D9474FFCA/0e/eb456dc4/ReflectionAbstractionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/src/Domain/Responses/ResponseStatus.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/GenericResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Domain/Responses/RegisterUserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" />
-      <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DefaultTimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/TimeProvider.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/DateTime/DefaultTimeProvider.cs" />
@@ -81,8 +84,6 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Providers/Encryption/TokenManager.cs" />
       <option value="$PROJECT_DIR$/src/Infrastructure/Database/Entities/BaseReferenceEntity.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/UserResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
-      <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
       <option value="$PROJECT_DIR$/src/Application/User/Handlers/GetUserByIdQuery.cs" />
       <option value="$PROJECT_DIR$/src/Api/appsettings.json" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/AuthenticateUserResponse.cs" />
@@ -99,10 +100,17 @@
       <option value="$PROJECT_DIR$/src/Infrastructure/Helpers/EncryptionHelper.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/Token.cs" />
       <option value="$PROJECT_DIR$/src/Domain/Responses/UserRoleAdditionResponse.cs" />
-      <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Application/Interfaces/IAuthenticationService.cs" />
       <option value="$PROJECT_DIR$/src/Application/Authentication/Handlers/AddUserRole.cs" />
+      <option value="$PROJECT_DIR$/tests/Application.Tests/Class1.cs" />
+      <option value="$PROJECT_DIR$/tests/Application.Tests/UserTests.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/Handlers/ChangeEmailCommand.cs" />
+      <option value="$PROJECT_DIR$/src/Domain/Responses/ChangeUserEmailResponse.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Interfaces/IUserService.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/UserService.cs" />
+      <option value="$PROJECT_DIR$/src/Application/User/Handlers/ChangeUserEmailCommand.cs" />
       <option value="$PROJECT_DIR$/src/Api/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oCAmovYCkcRfWtQfYI6y48slte" />
@@ -202,7 +210,8 @@
       <workItem from="1613958460079" duration="1505000" />
       <workItem from="1613960361594" duration="954000" />
       <workItem from="1613967939812" duration="1189000" />
-      <workItem from="1613970789548" duration="2901000" />
+      <workItem from="1613970789548" duration="3108000" />
+      <workItem from="1614138781617" duration="9867000" />
     </task>
     <task id="LOCAL-00001" summary="Injected config to context builder and some cleanup">
       <created>1612824175739</created>
@@ -337,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613971141206</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added UserRole addition">
+      <created>1613973909945</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1613973909945</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,23 +427,63 @@
     <MESSAGE value="Fixed Authentication. Jwt Tokens working now." />
     <MESSAGE value="Renamed DateTime to Clock and using it for Token." />
     <MESSAGE value="Moving Encryption to Helper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving Encryption to Helper" />
+    <MESSAGE value="Added UserRole addition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UserRole addition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Api/Controllers/UserController.cs</url>
-          <line>63</line>
-          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\src\Api\Controllers\UserController.cs" initialLine="63" containingFunctionPresentation="method 'AddRoleToUser'">
+          <url>file://$PROJECT_DIR$/src/Application/Authentication/Handlers/AddUserRole.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\src\Application\Authentication\Handlers\AddUserRole.cs" initialLine="29" containingFunctionPresentation="method 'Handle'">
             <startOffsets>
-              <option value="2050" />
+              <option value="1041" />
             </startOffsets>
             <endOffsets>
-              <option value="2143" />
+              <option value="1129" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Application.Tests/UserTests.cs</url>
+          <line>76</line>
+          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\tests\Application.Tests\UserTests.cs" initialLine="76" containingFunctionPresentation="method 'GetUserById_Should_Return_Users'">
+            <startOffsets>
+              <option value="2252" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2278" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs</url>
+          <line>38</line>
+          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\src\Application\Authentication\AuthenticationService.cs" initialLine="38" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="1245" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1309" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Application/Authentication/AuthenticationService.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Storage\Repositories\Craig\dotnetPackages\src\Application\Authentication\AuthenticationService.cs" initialLine="41" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="1389" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1609" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

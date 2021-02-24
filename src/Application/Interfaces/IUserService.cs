@@ -11,5 +11,6 @@ namespace Application.Interfaces
         Task<UserListResponse> GetUsers();
         Task<GenericResponse> ValidateEmail(Guid emailValidationId);
         Task<UserResponse> GetUserById(Guid id);
+        Task<ChangeUserEmailResponse> ChangeEmail(Guid userId, string email);
     }
 }

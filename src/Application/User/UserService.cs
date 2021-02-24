@@ -108,6 +108,9 @@ namespace Application.User
 
         public async Task<UserResponse> GetUserById(Guid id)
         {
+            if (id == Guid.Empty)
+                throw new ArgumentException("Empty UserId");
+            
             var data = await _context.Users
                 .Select(x => new UserDto
                 {
@@ -143,8 +146,46 @@ namespace Application.User
 
         }
 
+        public async Task<ChangeUserEmailResponse> ChangeEmail(Guid userId, string email)
+        {
+            if (userId == Guid.Empty || email == string.Empty)
+                throw new ArgumentException("Email is not valid");
+
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null)
+                return new ChangeUserEmailResponse
+                {
+                    Success = false,
+                    Message = "Invalid user id",
+                    ResponseCode = 404
+                };
+
+
+            var userEmail = new UserEmail
+            {
+                Created = _clock.UtcNow(),
+                Email = email,
+                User = user
+            };
+
+            await _context.UserEmails.AddAsync(userEmail);
+            await _context.SaveChangesAsync();
+
+            return new ChangeUserEmailResponse
+            {
+                Message = "Email updated. Expecting validation",
+                Success = true,
+                ResponseCode = 201,
+                ValidationId = userEmail.Id
+            };
+        }
+
         public async Task<GenericResponse> ValidateEmail(Guid emailValidationId)
         {
+            if (emailValidationId == Guid.Empty)
+                throw new ArgumentException("Empty Email Validation");
+
             var emailValidation = await _context.UserEmails.SingleOrDefaultAsync(x => x.Id == emailValidationId);
             if (emailValidation is null)
             {

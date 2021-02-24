@@ -38,64 +38,62 @@ namespace Application.Authentication
         {
             _logger.LogInformation($"Login attempt for {request.Username}");
 
-            // Does the email exist? We need the Id to match the password.
+            // Get the user that owns this email address, if any.
             var matchedEmail = await _context
                 .UserEmails
                 .Include(x => x.User)
-                .OrderByDescending(x => x.Created)
-                .SingleOrDefaultAsync(x => x.Email == request.Username);
+                .OrderByDescending(x=>x.Created)
+                .FirstOrDefaultAsync(x => x.Email == request.Username);
 
-
-            if (matchedEmail is not null)
-            {
-                var encryptedPassword =
-                    EncryptionHelper.GenerateSaltedHash(request.Password, matchedEmail.User.Id.ToString());
-
-                var user = await _context
-                    .Users
-                    .SingleOrDefaultAsync(x => x.Id == matchedEmail.User.Id
-                                               && x.Password == encryptedPassword
-                    );
-
-                if (user != null)
+            if (matchedEmail == null)
+                return new AuthenticateUserResponse
                 {
-                    if (matchedEmail.ValidatedDate.HasValue == false)
-                    {
-                        _logger.LogInformation("Login details match by email has not yet been validated");
-                        return new AuthenticateUserResponse
-                        {
-                            Message = "Email has not been validated yet",
-                            ResponseCode = 400,
-                            Success = false
-                        };
-                    }
+                    Message = "Invalid Username/Password",
+                    Success = false,
+                    ResponseCode = 404
+                };
+            
+            // Validate it's the latest validated email.
+            var emails = await _context
+                .UserEmails
+                .Where(x => x.User == matchedEmail.User && x.ValidatedDate.HasValue)
+                .OrderByDescending(x => x.ValidatedDate)
+                .ToListAsync();
 
-                    _logger.LogInformation($"Login Success for {request.Username}");
+            if (emails != null && emails.FirstOrDefault()?.Email != request.Username)
+                return new AuthenticateUserResponse
+                {
+                    Message = "Email is obsolete",
+                    ResponseCode = 401,
+                    Success = false
+                };
+            
+            // Encrypt the incoming password so we can check against the hashed one in database.
+            var encryptedPassword =
+                EncryptionHelper.GenerateSaltedHash(request.Password, matchedEmail.User.Id.ToString());
+
+            var user = await _context
+                .Users
+                .Where(x => x.Id == matchedEmail.User.Id
+                            && x.Password == encryptedPassword)
+                .SingleOrDefaultAsync();
+
+            _logger.LogInformation($"Login Success for {request.Username}");
 
 
-                    var userDetails = await _mediator.Send(new GetUserByIdQuery {Id = user.Id});
+            var userDetails = await _mediator.Send(new GetUserByIdQuery {Id = user.Id});
 
-                    var token = _tokenHelper.GenerateToken(userDetails.Data);
-
-                    return new AuthenticateUserResponse
-                    {
-                        Firstname = user.Firstname,
-                        Id = user.Id,
-                        Surname = user.Surname,
-                        Token = token,
-                        Message = "Login Success",
-                        Success = true,
-                        ResponseCode = 200,
-                    };
-                }
-            }
-
-            _logger.LogWarning($"Login Failed for {request.Username}");
+            var token = _tokenHelper.GenerateToken(userDetails.Data);
 
             return new AuthenticateUserResponse
             {
-                Message = "Invalid Username/Password",
-                ResponseCode = 400
+                Firstname = user.Firstname,
+                Id = user.Id,
+                Surname = user.Surname,
+                Token = token,
+                Message = "Login Success",
+                Success = true,
+                ResponseCode = 200,
             };
         }
 

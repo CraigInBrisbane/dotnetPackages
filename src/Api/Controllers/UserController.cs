@@ -64,5 +64,13 @@ namespace Api.Controllers
             var result = await _mediatr.Send(new AddUserRoleRequest { UserId = userId, RoleId = roleId});
             return Ok(result);
         }
+
+        [HttpPost, Route("{userId}/email"), MapToApiVersion("1.0"), Authorize]
+        public async Task<IActionResult> ChangeEmail(Guid userId, string email)
+        {
+            // Need to check if this is the logged in user... get from Context? Token?
+            var result = await _mediatr.Send(new ChangeUserEmailCommand {UserId = userId, Email = email});
+            return Ok(result);
+        }
     }
 }
