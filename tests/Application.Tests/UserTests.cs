@@ -28,39 +28,6 @@ namespace Application.Tests
             context.Database.EnsureCreated();
             var logger = new Mock<ILogger<UserService>>();
             var clock = new Mock<IClockProvider>();
-
-
-            //
-            // var user = new Infrastructure.Database.Entities.User
-            // {
-            //     Created = clock.Object.UtcNow(),
-            //     Firstname = "Craig",
-            //     Id = _userId,
-            //     Password = "password",
-            //     Surname = "Lister",
-            //     CountryId = 0,
-            // };
-            //
-            // var userRoles = new UserRole
-            // {
-            //     Created = clock.Object.UtcNow(),
-            //     Role = context.Roles.FirstOrDefault(x => x.Id == 1),
-            //     User = user
-            // };
-            //
-            // var userEmail = new UserEmail
-            // {
-            //     Created = clock.Object.UtcNow(),
-            //     Email = "craig@listerhome.com",
-            //     User = user,
-            //     ValidatedDate = clock.Object.UtcNow().AddHours(1)
-            // };
-            //
-            // context.Users.Add(user);
-            // context.UserRoles.Add(userRoles);
-            // context.UserEmails.Add(userEmail);
-            //
-            // context.SaveChanges();
             
             _sut = new UserService(context, logger.Object, clock.Object);
         }
@@ -92,6 +59,48 @@ namespace Application.Tests
             Assert.Single(users.Data);
             Assert.Equal(user.Email, users.Data?.FirstOrDefault().Email.Current);
             Assert.Equal(false, users.Data?.FirstOrDefault().Email.CurrentIsValidated);
+        }
+
+        [Fact]
+        public async Task  RegisterUser_IsAssignedUserRoleOnly()
+        {
+            // Setup
+            var newUser = new RegisterUserQuery
+            {
+                Email = "craig@listerhome.com",
+                Firstname = "Craig",
+                Password = "password",
+                Surname = "Lister",
+                CountryId = 0
+            };
+            
+            // Act
+            var saveResult = await _sut.Register(newUser);
+            var result = await _sut.GetUserById(saveResult.UserId);
+            
+            // Assert
+            Assert.Single(result.Data.Roles);
+            Assert.Equal("User", result.Data.Roles.FirstOrDefault()?.Name);
+        }
+
+        [Fact]
+        public async Task Registration_Email_RequiresActivation()
+        {
+            // Setup
+            var newUser = new RegisterUserQuery
+            {
+                Email = "craig@listerhome.com",
+                Firstname = "Craig",
+                Password = "password",
+                Surname = "Lister",
+                CountryId = 0
+            };
+            
+            // Act
+            var saveResult = await _sut.Register(newUser);
+            var result = await _sut.GetUserById(saveResult.UserId);
+            
+            Assert.False(result.Data.Email.CurrentIsValidated);
         }
     }
 }
