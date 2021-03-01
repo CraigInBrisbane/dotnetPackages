@@ -10,13 +10,15 @@ This project has no UI (yet), as it's a demonstration of backend development.
 This project has been created using .Net 5.0, and will hopefully follow the latest framework releases. Additionally, Nuget packages will be updated as they become avaialble, unless they're broken. Packages that will be used:
 
 * Mediatr (Added)
-* Entity Framework Core (SQL server) (Added - Not being used)
-* AutoMapper (Added)
-* NUnit (Not yet added)
-* Moq (Not yet added)
-* Swagger (Added)
-* JWT Tokens (Not yet added)
+* Entity Framework Core (SQL server)
+* AutoMapper (Added but removed)
+* XUnit
+* Moq
+* InMemory db for testing
+* Swagger
+* JWT Tokens
 * Identity Server (Not yet added)
+* Fluent Validation
 
 ## The project
 The project achieves nothing. The plan is to add functionality that will showcase the packages we use, and will continually be added to. As of now, the plan is to login, and be authenticated. Basically showing that we get a 200 on a protected endpoint.
