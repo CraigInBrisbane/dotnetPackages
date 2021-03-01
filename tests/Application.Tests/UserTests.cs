@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Application.User;
 using Application.User.Handlers;
 using Infrastructure.Database;
-using Infrastructure.Database.Entities;
 using Infrastructure.Providers.Clock;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,7 +15,6 @@ namespace Application.Tests
     public class UserTests
     {
         private readonly UserService _sut;
-        private readonly Guid _userId = Guid.NewGuid();
         
         public UserTests()
         {
@@ -39,7 +37,7 @@ namespace Application.Tests
         }
 
         [Fact]
-        public async Task GetUserById_Should_Return_Users()
+        public async Task GetUserById_Should_Return_User()
         {
            // Setup
             var user = new RegisterUserQuery
@@ -53,12 +51,11 @@ namespace Application.Tests
             var result = await _sut.Register(user);
             
             // Act
-            var users = await _sut.GetUsers();
+            var users = await _sut.GetUserById(result.UserId);
             
             // Assert
-            Assert.Single(users.Data);
-            Assert.Equal(user.Email, users.Data?.FirstOrDefault().Email.Current);
-            Assert.Equal(false, users.Data?.FirstOrDefault().Email.CurrentIsValidated);
+            Assert.Equal(user.Email, users.Data.Email.Current);
+            Assert.False(users.Data.Email.CurrentIsValidated);
         }
 
         [Fact]
