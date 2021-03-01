@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.User;
 using Application.User.Handlers;
+using FluentAssertions;
 using Infrastructure.Database;
 using Infrastructure.Providers.Clock;
 using Microsoft.EntityFrameworkCore;
@@ -39,7 +40,7 @@ namespace Application.Tests
         [Fact]
         public async Task GetUserById_Should_Return_User()
         {
-           // Setup
+           // Arrange
             var user = new RegisterUserQuery
             {
                 Email = "craig@listerhome.com",
@@ -54,14 +55,14 @@ namespace Application.Tests
             var users = await _sut.GetUserById(result.UserId);
             
             // Assert
-            Assert.Equal(user.Email, users.Data.Email.Current);
-            Assert.False(users.Data.Email.CurrentIsValidated);
+            users.Data.Email.Current.Should().Be(user.Email);
+            users.Data.Email.CurrentIsValidated.Should().BeFalse();
         }
 
         [Fact]
         public async Task  RegisterUser_IsAssignedUserRoleOnly()
         {
-            // Setup
+            // Arrange
             var newUser = new RegisterUserQuery
             {
                 Email = "craig@listerhome.com",
@@ -76,14 +77,14 @@ namespace Application.Tests
             var result = await _sut.GetUserById(saveResult.UserId);
             
             // Assert
-            Assert.Single(result.Data.Roles);
-            Assert.Equal("User", result.Data.Roles.FirstOrDefault()?.Name);
+            result.Data.Roles.Should().ContainSingle();
+            result.Data.Roles.FirstOrDefault()?.Name.Should().Be("User");
         }
 
         [Fact]
         public async Task Registration_Email_RequiresActivation()
         {
-            // Setup
+            // Arrange
             var newUser = new RegisterUserQuery
             {
                 Email = "craig@listerhome.com",
@@ -97,7 +98,8 @@ namespace Application.Tests
             var saveResult = await _sut.Register(newUser);
             var result = await _sut.GetUserById(saveResult.UserId);
             
-            Assert.False(result.Data.Email.CurrentIsValidated);
+            // Assert
+            result.Data.Email.CurrentIsValidated.Should().BeFalse();
         }
     }
 }
